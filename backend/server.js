@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const Product = require("./models/Product");
 const cors = require("cors");
