@@ -2,7 +2,7 @@
   "name": "ITshop",
   "version": "1.0.0",
   "engines": {
-    "node": "16.13.1"
+    "node": "18.12.1"
   },
   "description": "",
   "main": "index.js",
