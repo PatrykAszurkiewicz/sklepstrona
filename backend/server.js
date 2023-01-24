@@ -27,6 +27,12 @@ app.use("/products", productRoutes);
 app.use("/orders", orderRoutes);
 app.use("/images", imageRoutes);
 
+const dirname = path.resolve();
+app.use(express.static(path.join(dirname, "/frontend/build")));
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "/frontend/build/index.html"))
+);
+
 app.post("/create-payment", async (req, res) => {
   const { amount } = req.body;
   console.log(amount);
