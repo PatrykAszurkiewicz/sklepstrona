@@ -2,8 +2,7 @@ require("dotenv").config();
 
 const mongoose = require("mongoose");
 
-const connectionStr =
-  "mongodb+srv://admin:grzyb123@cluster0.2pxasg0.mongodb.net/?retryWrites=true&w=majority";
+const connectionStr = process.env.MONGO;
 mongoose.set("strictQuery", false);
 mongoose
   .connect(connectionStr, { useNewUrlparser: true })
