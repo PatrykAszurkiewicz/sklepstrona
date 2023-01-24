@@ -12,7 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cd backend && npm start & cd ../frontend && npm start",
     "heroku-prebuild": "npm install -f",
-    "heroku-postbuild": "npm run start"
+    "heroku-postbuild": "npm run deploy"
   },
   "dependencies": {
     "axios": "^1.2.2",
