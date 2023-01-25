@@ -14,7 +14,7 @@ function Home() {
   const products = useSelector((state) => state.products);
   const lastProducts = products.slice(0, 8);
   useEffect(() => {
-    axios.get("/products").then(({ data }) => console.log(data));
+    axios.get("/products").then(({ data }) => dispatch(updateProducts(data)));
   }, []);
   return (
     <div>
