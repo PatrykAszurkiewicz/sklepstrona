@@ -27,7 +27,7 @@ function CheckoutForm() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer ",
+          Authorization: `^Bearer ${process.env.REACT_APP_CLIENT_SECRET}:^`,
         },
         body: JSON.stringify({ amount: user.cart.total.toFixed(2) * 100 }),
       }
