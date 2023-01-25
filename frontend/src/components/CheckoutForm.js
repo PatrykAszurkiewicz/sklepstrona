@@ -21,17 +21,14 @@ function CheckoutForm() {
     e.preventDefault();
     if (!stripe || !elements || user.cart.count <= 0) return;
     setPaying(true);
-    const { client_secret } = await fetch(
-      "https://itshop-sklep.herokuapp.com/create-payment",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer ",
-        },
-        body: JSON.stringify({ amount: user.cart.total.toFixed(2) * 100 }),
-      }
-    ).then((res) => res.json());
+    const { client_secret } = await fetch("/create-payment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer ",
+      },
+      body: JSON.stringify({ amount: user.cart.total.toFixed(2) * 100 }),
+    }).then((res) => res.json());
     const { paymentIntent } = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
         card: elements.getElement(CardElement),
